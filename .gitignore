@@ -22,4 +22,4 @@ htmlcov/
 Thumbs.db
 
 # Large models
-notebooks/pipeline.pkl
+models/pipeline.pkl
