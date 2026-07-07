@@ -10,3 +10,6 @@ ipywidgets
 fg-data-profiling
 shap
 category-encoders
+streamlit
+plotly
+Pillow
