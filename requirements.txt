@@ -9,3 +9,4 @@ ydata-profiling
 ipywidgets
 fg-data-profiling
 shap
+category-encoders
