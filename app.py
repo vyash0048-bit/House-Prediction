@@ -20,50 +20,242 @@ st.set_page_config(
 inject_theme()
 render_nav(active="valuation")
 
-# Component Styles
+# Component Styles — Hyper-luxury overhaul
 st.markdown("""
 <style>
+    /* ====== BUTTON: PREMIUM GOLD ====== */
     .stButton>button {
+        position: relative;
         background: transparent;
         color: #D4AF37;
-        border: 1px solid #D4AF37;
-        border-radius: 6px;
+        border: 1px solid rgba(212,175,55,0.5);
+        border-radius: 10px;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        font-size: 1rem;
-        padding: 1rem 2rem;
-        transition: all 0.4s ease;
+        letter-spacing: 3px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 1.1rem 2.5rem;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         width: 100%;
+        overflow: hidden;
+        backdrop-filter: blur(8px);
+    }
+    .stButton>button::before {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(212,175,55,0.15), rgba(255,246,218,0.1), transparent);
+        transition: left 0.6s ease;
+    }
+    .stButton>button:hover::before {
+        left: 100%;
     }
     .stButton>button:hover {
-        background: #D4AF37;
+        background: linear-gradient(135deg, #D4AF37 0%, #FFF6DA 50%, #D4AF37 100%);
         color: #050505;
-        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        border-color: #D4AF37;
+        box-shadow: 0 0 30px rgba(212,175,55,0.3), 0 0 60px rgba(212,175,55,0.1), inset 0 0 20px rgba(255,246,218,0.1);
+        transform: translateY(-2px);
+        letter-spacing: 4px;
     }
+    .stButton>button:active {
+        transform: translateY(1px) scale(0.98);
+        box-shadow: 0 0 15px rgba(212,175,55,0.2);
+    }
+
+    /* ====== FINAL VALUATION: ULTRA PREMIUM ====== */
+    @keyframes borderBreath {
+        0%, 100% { border-color: rgba(212,175,55,0.25); }
+        50% { border-color: rgba(212,175,55,0.6); }
+    }
+    @keyframes innerAurora {
+        0%, 100% { box-shadow: inset 0 0 40px rgba(212,175,55,0.03), 0 20px 60px rgba(0,0,0,0.7); }
+        50% { box-shadow: inset 0 0 80px rgba(212,175,55,0.07), 0 25px 70px rgba(0,0,0,0.6); }
+    }
+    @keyframes goldTextShift {
+        0% { background-position: 0% center; }
+        100% { background-position: 200% center; }
+    }
+    @keyframes valReveal {
+        0% { opacity: 0; transform: scale(0.8) translateY(20px); filter: blur(10px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+    }
+
     .final-valuation {
-        background: linear-gradient(180deg, rgba(20,20,20,0.9) 0%, rgba(5,5,5,0.9) 100%);
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        padding: 4rem 2rem;
-        border-radius: 12px;
+        position: relative;
+        background: linear-gradient(180deg, rgba(22,22,28,0.95) 0%, rgba(8,8,12,0.97) 100%);
+        border: 1px solid rgba(212,175,55,0.3);
+        padding: 5rem 2rem;
+        border-radius: 24px;
         text-align: center;
-        margin-top: 2rem;
-        box-shadow: inset 0 0 40px rgba(212, 175, 55, 0.05), 0 20px 50px rgba(0,0,0,0.8);
+        margin-top: 2.5rem;
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        overflow: hidden;
+        animation: borderBreath 4s ease-in-out infinite, innerAurora 6s ease-in-out infinite, valReveal 1s cubic-bezier(0.22,0.61,0.36,1) forwards;
+    }
+    .final-valuation::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent 10%, rgba(212,175,55,0.5) 50%, transparent 90%);
+    }
+    .final-valuation::after {
+        content: '';
+        position: absolute;
+        top: -50%; left: -50%;
+        width: 200%; height: 200%;
+        background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.03) 0%, transparent 50%);
+        pointer-events: none;
+    }
+    .final-valuation .ornament {
+        color: rgba(212,175,55,0.4);
+        font-size: 1.2rem;
+        letter-spacing: 12px;
+        margin: 0.8rem 0;
     }
     .final-valuation .lbl {
-        color: #888888;
+        color: #B5B0A5;
         text-transform: uppercase;
-        letter-spacing: 4px;
-        font-size: 1rem;
-        margin-bottom: 1rem;
+        letter-spacing: 5px;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
     }
     .final-valuation .val {
         font-family: 'Cinzel', serif;
         font-size: 5.5rem;
+        margin: 0.5rem 0;
+        background: linear-gradient(90deg, #8C6E24, #D4AF37, #FFF6DA, #D4AF37, #8C6E24);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: goldTextShift 4s linear infinite;
+        filter: drop-shadow(0 4px 25px rgba(212,175,55,0.3));
+    }
+    .final-valuation .val-sub {
+        color: #A8A8A8;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-top: 1rem;
+    }
+
+    /* ====== SECTION DIVIDER ====== */
+    @keyframes dividerGlow {
+        0%, 100% { opacity: 0.5; text-shadow: 0 0 8px rgba(212,175,55,0.3); }
+        50% { opacity: 1; text-shadow: 0 0 20px rgba(212,175,55,0.6), 0 0 40px rgba(212,175,55,0.2); }
+    }
+    .section-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin: 2.5rem 0;
+    }
+    .section-divider::before,
+    .section-divider::after {
+        content: '';
+        flex: 1;
+        max-width: 200px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
+    }
+    .section-divider .diamond {
         color: #D4AF37;
-        margin: 0;
-        text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        font-size: 0.9rem;
+        animation: dividerGlow 4s ease-in-out infinite;
+    }
+
+    /* ====== HERO OVERLAY ====== */
+    .hero-overlay {
+        position: relative;
+        margin-top: -6px;
+        padding: 1.5rem 2rem;
+        background: linear-gradient(180deg, rgba(11,11,13,0) 0%, rgba(11,11,13,0.95) 100%);
+        text-align: center;
+    }
+    .hero-overlay .watermark {
+        font-family: 'Cinzel', serif;
+        font-size: 0.7rem;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        color: rgba(212,175,55,2);
+    }
+
+    /* ====== CHART GLASS PANEL ====== */
+    .chart-glass-panel {
+        background: linear-gradient(145deg, rgba(18,18,24,0.5) 0%, rgba(10,10,14,0.6) 100%);
+        border: 1px solid rgba(212,175,55,0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .chart-glass-panel:hover {
+        border-color: rgba(212,175,55,0.25);
+        box-shadow: 0 12px 40px rgba(212,175,55,0.05), 0 8px 32px rgba(0,0,0,0.4);
+    }
+    
+    /* ====== PLOTLY CHART GLASS CARD ====== */
+    div[data-testid="stPlotlyChart"] {background: linear-gradient(145deg,rgba(18,18,24,0.55) 0%,rgba(10,10,14,0.65) 100%);
+        border: 1px solid rgba(212,175,55,0.15);
+        border-radius: 10px;
+        padding: 5px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow:0 10px 35px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    div[data-testid="stPlotlyChart"]:hover {
+        border-color: rgba(212,175,55,0.35);
+        box-shadow:0 15px 45px rgba(212,175,55,0.08),0 10px 35px rgba(0,0,0,0.45);
+    }
+
+    /* ====== ANIMATED FOOTER ====== */
+    @keyframes footerLineGlow {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+    .lux-footer {
+        margin-top: 100px;
+        padding-top: 40px;
+        border-top: 1px solid transparent;
+        border-image: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), rgba(212,175,55,0.6), rgba(212,175,55,0.4), transparent) 1;
+        display: flex;
+        justify-content: space-between;
+        color: var(--mute);
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+    }
+    .lux-footer::before {
+        content: '';
+        position: absolute;
+        top: -1px; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        background-size: 200% 100%;
+        animation: footerLineGlow 6s linear infinite;
+        opacity: 0.5;
+    }
+
+    /* ====== STAGGER METRIC COLUMNS ====== */
+    [data-testid="stHorizontalBlock"] > div:nth-child(1) .lux-metric {
+        animation-delay: 0.1s;
+    }
+    [data-testid="stHorizontalBlock"] > div:nth-child(2) .lux-metric {
+        animation-delay: 0.3s;
+    }
+    [data-testid="stHorizontalBlock"] > div:nth-child(3) .lux-metric {
+        animation-delay: 0.5s;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -73,6 +265,12 @@ try:
     from PIL import Image
     img = Image.open('assets/hero_banner.jpg')
     st.image(img, use_container_width=True)
+    # Hero overlay
+    st.markdown("""
+    <div class="hero-overlay">
+        <div class="watermark">AUREA ESTATES · PRIVATE VALUATION ATELIER</div>
+    </div>
+    """, unsafe_allow_html=True)
 except Exception:
     pass
 
@@ -126,25 +324,35 @@ try:
 
     st.markdown('<div style="height: 50px"></div>', unsafe_allow_html=True)
     
-    # Beautiful Plotly Chart
-    fig = px.scatter(
-        df.sample(min(800, len(df)), random_state=42), 
-        x="built_up_area", y="price", 
-        color_discrete_sequence=[GOLD],
-        opacity=0.6
-    )
-    fig.update_layout(
-        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Inter", color="#888888"),
-        margin=dict(l=0, r=0, t=30, b=0),
-        xaxis=dict(title="Built-up Area (sq.ft)", gridcolor="rgba(212,175,55,0.05)", zeroline=False),
-        yaxis=dict(title="Price (Cr)", gridcolor="rgba(212,175,55,0.05)", zeroline=False),
-        title=dict(text="Market Distribution", font=dict(family="Cinzel", color="#D4AF37", size=24))
-    )
-    fig.update_traces(marker=dict(size=8, line=dict(width=0)))
-    st.plotly_chart(fig, use_container_width=True)
+    # Chart inside glass panel
+    # st.markdown('<div class="chart-glass-panel">', unsafe_allow_html=True)
+   #fig = px.scatter(
+   #    df.sample(min(800, len(df)), random_state=42), 
+   #    x="built_up_area", y="price", 
+   #    color_discrete_sequence=[GOLD],
+   #    opacity=0.6
+   #)
+   #fig.update_layout(
+   #    height = 300,
+   #    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+   #    font=dict(family="Inter", color="#888888"),
+   #    margin=dict(l=0, r=0, t=10, b=0),
+   #    xaxis=dict(title="Built-up Area (sq.ft)", gridcolor="rgba(212,175,55,0.05)", zeroline=False),
+   #    yaxis=dict(title="Price (Cr)", gridcolor="rgba(212,175,55,0.05)", zeroline=False),
+   #    title=dict(text="Market Distribution", font=dict(family="Cinzel", color="#D4AF37", size=24))
+   #)
+   #fig.update_traces(marker=dict(size=8, line=dict(width=0)))
+   #st.plotly_chart(fig,use_container_width=True,config={"displayModeBar": False})
+    # st.markdown('</div>', unsafe_allow_html=True)"""
     
-    st.markdown('<div style="height: 60px"></div>', unsafe_allow_html=True)
+    # Ornamental divider
+    st.markdown("""
+    <div class="section-divider">
+        <span class="diamond">◈</span>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div style="height: 30px"></div>', unsafe_allow_html=True)
     
     # ---- VALUATION ENGINE SECTION ----
     st.markdown('<div class="section-eyebrow">Valuation Engine</div>', unsafe_allow_html=True)
@@ -153,6 +361,8 @@ try:
                 'Specify the exact parameters of the asset. Our algorithmic engine will benchmark it against the portfolio to determine the most defensible market price.</p>',
                 unsafe_allow_html=True)
     
+    # Form inside glass panel
+    st.markdown('<div class="glass-form-panel">', unsafe_allow_html=True)
     with st.container():
         c1, c2, c3 = st.columns(3, gap="large")
         
@@ -173,6 +383,7 @@ try:
             furnishing_type = st.selectbox('Furnishing Type', sorted(df['furnishing_type'].unique()))
             luxury_category = st.selectbox('Luxury Category', sorted(df['luxury_category'].unique()))
             floor_category = st.selectbox('Floor Category', sorted(df['floor_category'].unique()))
+    st.markdown('</div>', unsafe_allow_html=True)
             
     st.markdown('<div style="height: 30px"></div>', unsafe_allow_html=True)
     
@@ -199,8 +410,11 @@ try:
             
             st.markdown(f"""
             <div class="final-valuation">
+                <div class="ornament">◈ ◈ ◈</div>
                 <div class="lbl">Estimated Market Value</div>
                 <div class="val">{formatted_price}</div>
+                <div class="ornament">◈ ◈ ◈</div>
+                <div class="val-sub">Algorithmically Benchmarked · Aurea Engine</div>
             </div>
             """, unsafe_allow_html=True)
             
@@ -208,8 +422,7 @@ except Exception as e:
     st.error(f"Error loading model or data: {e}")
 
 st.markdown("""
-<div style="margin-top:100px; padding-top:40px; border-top:1px solid var(--line);
-     display:flex; justify-content:space-between; color:var(--mute); font-size:0.75rem; letter-spacing:2px; text-transform:uppercase;">
+<div class="lux-footer">
   <div>© AUREA ESTATES · 2026</div>
   <div>Strictly Confidential Valuation</div>
 </div>
