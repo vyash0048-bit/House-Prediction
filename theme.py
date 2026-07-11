@@ -609,7 +609,7 @@ def render_nav(active: str = "valuation"):
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="aurea-nav-row aurea-links">', unsafe_allow_html=True)
-    cols = st.columns([1, 1, 1, 1, 1])
+    cols = st.columns([1, 1, 1, 1, 1, 1])
     with cols[1]:
         st.markdown(f'<div class="{"aurea-active" if active=="valuation" else ""} ">', unsafe_allow_html=True)
         st.page_link("app.py", label="Valuation")
@@ -621,6 +621,10 @@ def render_nav(active: str = "valuation"):
     with cols[3]:
         st.markdown(f'<div class="{"aurea-active" if active=="guide" else ""} ">', unsafe_allow_html=True)
         st.page_link("pages/2_◈_The_Guide.py", label="The Guide")
+        st.markdown('</div>', unsafe_allow_html=True)
+    with cols[4]:
+        st.markdown(f'<div class="{"aurea-active" if active=="recommend" else ""} ">', unsafe_allow_html=True)
+        st.page_link("pages/3_◈_Recommend_Apartments.py", label="Recommend")
         st.markdown('</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
