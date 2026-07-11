@@ -1,46 +1,55 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/vyash0048-bit/House-Prediction/main/assets/hero_banner.jpg" alt="Aurea Estates Hero" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
-  
-  <h1 align="center">AUREA ESTATES · VALUATION ENGINE</h1>
-  
-  <p align="center">
-    <strong>A hyper-premium, algorithmically driven valuation atelier for Gurgaon real estate.</strong>
+  <img src="assets/hero_banner.jpg" alt="Aurea Estates valuation dashboard hero" width="100%">
+
+  <br><br>
+
+  <img src="https://readme-typing-svg.demolab.com?font=Playfair+Display&weight=700&size=34&duration=2800&pause=800&color=D4AF37&center=true&vCenter=true&width=900&lines=AUREA+ESTATES;Gurgaon+Real+Estate+Valuation+Engine;Premium+ML+Pricing+Intelligence" alt="Animated Aurea Estates title">
+
+  <p>
+    <strong>A luxury-styled Streamlit intelligence suite for Gurgaon property valuation, market exploration, and pricing confidence.</strong>
   </p>
-  
-  <p align="center">
-    <a href="https://streamlit.io"><img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white" alt="Streamlit"></a>
-    <a href="https://scikit-learn.org/"><img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-Learn"></a>
-    <a href="https://pandas.pydata.org/"><img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"></a>
-    <a href="https://plotly.com/"><img src="https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white" alt="Plotly"></a>
+
+  <p>
+    <a href="https://house-prediction-77ywtbegrhhimdh3uvqqqf.streamlit.app/">
+      <img src="https://img.shields.io/badge/Live_App-Launch_Aurea-D4AF37?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live app">
+    </a>
+    <a href="https://streamlit.io/">
+      <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
+    </a>
+    <a href="https://scikit-learn.org/">
+      <img src="https://img.shields.io/badge/scikit--learn-1.7.2-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="scikit-learn">
+    </a>
+    <a href="https://plotly.com/">
+      <img src="https://img.shields.io/badge/Plotly-Interactive_Charts-3F4F75?style=for-the-badge&logo=plotly&logoColor=white" alt="Plotly">
+    </a>
   </p>
+
+  <h3>
+    <a href="https://house-prediction-77ywtbegrhhimdh3uvqqqf.streamlit.app/">Open the deployed app</a>
+  </h3>
 </div>
-
-<br>
-
-## ◈ The Atelier
-
-**Aurea Estates** is not just a prediction model; it is a meticulously crafted valuation engine built with the aesthetics of a $50M luxury brand. From bespoke glassmorphism to sweeping golden gradients, every pixel has been designed to reflect the premium nature of the real estate it evaluates.
-
-Under the hood lies a robust machine learning pipeline trained on highly curated property data, capable of benchmarking the most defensible market price based on twelve quiet variables.
 
 ---
 
-## ✨ Hyper-Luxury Architecture
+## Preview
 
 <div align="center">
   <table>
     <tr>
       <td align="center" width="33%">
-        <h3>🎨 The Interface</h3>
-        <p>Bespoke CSS injections, animated components, glass-panel charting, and shifting aurora gradients. A true Rolls Royce level UI.</p>
+        <img src="https://img.shields.io/badge/Valuation-Engine-111111?style=flat-square&labelColor=D4AF37" alt="Valuation engine">
+        <br>
+        Predicts defensible market value from core property signals.
       </td>
       <td align="center" width="33%">
-        <h3>🧠 The Engine</h3>
-        <p>A rigorous scikit-learn pipeline performing categorical encoding, feature scaling, and advanced regression to output a confident valuation.</p>
+        <img src="https://img.shields.io/badge/Market-Intelligence-111111?style=flat-square&labelColor=D4AF37" alt="Market intelligence">
+        <br>
+        Explores pricing patterns, sectors, distributions, and outliers.
       </td>
       <td align="center" width="33%">
-        <h3>📊 The Intelligence</h3>
-        <p>Dynamic Plotly visualization wrapped in frosted glass containers, allowing deep dives into market distribution and pricing trends.</p>
+        <img src="https://img.shields.io/badge/Luxury-Interface-111111?style=flat-square&labelColor=D4AF37" alt="Luxury interface">
+        <br>
+        Uses custom CSS, premium visuals, and interactive Plotly charts.
       </td>
     </tr>
   </table>
@@ -48,91 +57,150 @@ Under the hood lies a robust machine learning pipeline trained on highly curated
 
 ---
 
-## 🚀 Getting Started
+## What It Does
 
-Experience the valuation engine locally.
+Aurea Estates turns curated Gurgaon housing data into an interactive valuation experience. The app combines a trained scikit-learn pipeline with a polished Streamlit interface so users can estimate property value, inspect market segments, and understand the variables behind price movement.
 
-### 1. Initialize the Environment
-Ensure you have Python 3.9+ installed.
-```bash
-# Clone the repository
-git clone https://github.com/vyash0048-bit/House-Prediction.git
-cd House-Prediction
-
-# Activate virtual environment (Windows)
-.venv\Scripts\Activate.ps1
-# OR (macOS/Linux)
-source .venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### 2. Ignite the Engine
-```bash
-streamlit run app.py
-```
-*The application will launch locally at `http://localhost:8501/`*
+The experience is designed like a premium real-estate atelier: cinematic hero imagery, gold-accented controls, glass-style panels, animated sections, and dashboard views built for quick scanning.
 
 ---
 
-## Deployment Note
+## Core Signals
 
-`models/pipeline.pkl` is intentionally excluded from Git because it is a large
-model artifact. Before deploying, upload `pipeline.pkl` to a direct-download
-location such as a GitHub Release asset, Hugging Face file, S3 object, or Google
-Drive link that has been converted to a direct download URL.
+| Signal | Why It Matters |
+|---|---|
+| Sector | Captures location premium and neighborhood demand. |
+| Property type | Separates flat and house behavior. |
+| Bedrooms and bathrooms | Models configuration and livability. |
+| Built-up area | Measures scale and usable footprint. |
+| Balcony count | Adds amenity and layout context. |
+| Age / possession | Reflects readiness, vintage, and construction phase. |
+| Servant room / store room | Captures utility and premium inventory markers. |
+| Furnishing type | Distinguishes furnished, semi-furnished, and unfurnished properties. |
+| Luxury category | Encodes quality tier and finish level. |
+| Floor category | Adds floor-position preference and elevation effect. |
 
-Set this deployment secret/environment variable:
+---
+
+## Tech Stack
+
+<div align="center">
+
+| Layer | Tools |
+|---|---|
+| App | Streamlit |
+| Modeling | scikit-learn, category-encoders, XGBoost |
+| Data | pandas, NumPy |
+| Charts | Plotly, Matplotlib, Seaborn |
+| Model storage | Git LFS |
+| Styling | Custom CSS in Streamlit |
+
+</div>
+
+---
+
+## Repository Map
 
 ```text
-MODEL_URL=https://your-direct-download-link/pipeline.pkl
+House Prediction/
+├── app.py                         # Main Streamlit valuation dashboard
+├── theme.py                       # Design system, styling, and shared UI helpers
+├── pages/
+│   ├── 1_◈_Market_Intelligence.py # Analytics and market exploration
+│   └── 2_◈_The_Guide.py           # Methodology and user guide
+├── assets/
+│   └── hero_banner.jpg            # README and app hero visual
+├── data/
+│   ├── raw/                       # Original datasets
+│   └── processed/                 # Cleaned datasets used by the app
+├── models/
+│   ├── df.pkl                     # Supporting serialized data
+│   └── pipeline.pkl               # Git LFS model artifact
+├── notebooks/                     # EDA, feature engineering, and model training
+└── requirements.txt               # Python dependencies
 ```
 
-On Streamlit Community Cloud, add it under app secrets:
+---
+
+## Run Locally
+
+Clone the project:
+
+```bash
+git clone https://github.com/vyash0048-bit/House-Prediction.git
+cd House-Prediction
+```
+
+Install Git LFS and fetch the model:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+Create or activate your Python environment, then install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Launch the app:
+
+```bash
+streamlit run app.py
+```
+
+The local app opens at:
+
+```text
+http://localhost:8501/
+```
+
+---
+
+## Deployment
+
+The app is live here:
+
+<div align="center">
+  <a href="https://house-prediction-77ywtbegrhhimdh3uvqqqf.streamlit.app/">
+    <img src="https://img.shields.io/badge/Launch_Deployed_App-Aurea_Estates-D4AF37?style=for-the-badge&logo=streamlit&logoColor=white" alt="Launch deployed app">
+  </a>
+</div>
+
+`models/pipeline.pkl` is stored with Git LFS because the model is too large for normal GitHub file storage. For deployment, make sure the host pulls LFS files during build.
+
+The app also supports a fallback `MODEL_URL` secret. If the deployed server does not receive the LFS model file, upload `pipeline.pkl` to a direct-download location and set:
 
 ```toml
 MODEL_URL = "https://your-direct-download-link/pipeline.pkl"
 ```
 
-When the deployed app starts and `models/pipeline.pkl` is missing, it downloads
-the model from `MODEL_URL` and caches it on the server.
-
 ---
 
-## 📁 Repository Structure
+## Project Flow
 
-```text
-House Prediction/
-├── app.py                        # The Valuation Engine (Main Dashboard)
-├── theme.py                      # Core Design System (CSS, Animations, Colors)
-├── pages/
-│   ├── 1_◈_Market_Intelligence.py # Analytics and Portfolio insights
-│   └── 2_◈_The_Guide.py           # Methodology and Documentation
-├── data/
-│   ├── raw/                      # Original, unmodified datasets
-│   └── processed/                # Cleaned data ready for inference
-├── models/
-│   └── pipeline.pkl              # Serialized scikit-learn valuation model
-└── notebooks/                    # Jupyter notebooks for EDA and ML training
+```mermaid
+flowchart LR
+    A["Raw Gurgaon listings"] --> B["Cleaning and preprocessing"]
+    B --> C["Feature engineering"]
+    C --> D["Model selection"]
+    D --> E["Serialized pipeline.pkl"]
+    E --> F["Streamlit valuation engine"]
+    C --> G["Market intelligence dashboard"]
 ```
 
 ---
 
-## 💎 The Twelve Signals
-Our algorithm factors in the following parameters to benchmark pricing:
-- **Sector** (Location premium)
-- **Property Type** (Villa vs. Flat)
-- **Configuration** (Bedrooms/Bathrooms)
-- **Built-up Area** (Scale lever)
-- **Age / Possession** (Vintage)
-- **Luxury Tier** (Premium finishings)
-- **Floor Position** (Elevation premium)
-- *...and more subtle signals.*
+## Model Notes
+
+The production model is a serialized scikit-learn pipeline. It expects the app inputs to match the training schema exactly, including categorical values such as `furnished`, `semifurnished`, and `unfurnished`.
+
+`requirements.txt` pins `scikit-learn==1.7.2` so the deployed runtime matches the version used to create the model artifact.
 
 ---
 
 <div align="center">
-  <p><i>"There is no single market price — only a defensible range. Aurea makes those variables visible."</i></p>
-  <p><b>© AUREA ESTATES · STRICTLY CONFIDENTIAL VALUATION</b></p>
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&color=0:D4AF37,100:111111&section=footer&text=Aurea%20Estates&fontColor=ffffff&fontSize=28&animation=fadeIn" alt="Animated footer wave">
+  <p><em>There is no single market price, only a defensible range. Aurea makes the range visible.</em></p>
 </div>
