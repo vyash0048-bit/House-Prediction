@@ -2,12 +2,14 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
 import plotly.express as px
 import plotly.graph_objects as go
+from urllib.request import urlretrieve
 from theme import inject_theme, render_nav, format_inr, GOLD
 
 st.set_page_config(
@@ -287,7 +289,30 @@ def load_data():
 
 @st.cache_resource
 def load_model():
-    with open('models/pipeline.pkl', 'rb') as f:
+    model_path = Path('models/pipeline.pkl')
+
+    if not model_path.exists():
+        model_url = os.getenv('MODEL_URL')
+        if not model_url:
+            try:
+                model_url = st.secrets.get('MODEL_URL')
+            except Exception:
+                model_url = None
+
+        if not model_url:
+            st.error(
+                "Model file is missing. Add MODEL_URL in your deployment secrets "
+                "or place models/pipeline.pkl in the models folder."
+            )
+            st.stop()
+
+        model_path.parent.mkdir(parents=True, exist_ok=True)
+        temp_path = model_path.with_suffix('.pkl.download')
+        with st.spinner('Downloading valuation model...'):
+            urlretrieve(model_url, temp_path)
+            temp_path.replace(model_path)
+
+    with model_path.open('rb') as f:
         return pickle.load(f)
 
 try:

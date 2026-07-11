@@ -76,6 +76,30 @@ streamlit run app.py
 
 ---
 
+## Deployment Note
+
+`models/pipeline.pkl` is intentionally excluded from Git because it is a large
+model artifact. Before deploying, upload `pipeline.pkl` to a direct-download
+location such as a GitHub Release asset, Hugging Face file, S3 object, or Google
+Drive link that has been converted to a direct download URL.
+
+Set this deployment secret/environment variable:
+
+```text
+MODEL_URL=https://your-direct-download-link/pipeline.pkl
+```
+
+On Streamlit Community Cloud, add it under app secrets:
+
+```toml
+MODEL_URL = "https://your-direct-download-link/pipeline.pkl"
+```
+
+When the deployed app starts and `models/pipeline.pkl` is missing, it downloads
+the model from `MODEL_URL` and caches it on the server.
+
+---
+
 ## 📁 Repository Structure
 
 ```text
