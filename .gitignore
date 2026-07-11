@@ -21,5 +21,3 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# Large models
-models/pipeline.pkl
