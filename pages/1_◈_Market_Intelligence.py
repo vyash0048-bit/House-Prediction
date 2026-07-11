@@ -429,7 +429,7 @@ with tab1:
         hovertemplate="<b>%{y}</b><br>Median · ₹ %{x:.2f} Cr<extra></extra>",
     ))
     dark_layout(fig, "Median valuation by sector (Cr)", height=560)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
     st.markdown('</div>', unsafe_allow_html=True)
 
 with tab2:
@@ -442,7 +442,7 @@ with tab2:
         fig.update_traces(marker_line_color="rgba(11,11,13,0.4)", marker_line_width=1, opacity=0.9)
         dark_layout(fig, "Price distribution (Cr)", height=380)
         fig.update_xaxes(title="Price (Cr)"); fig.update_yaxes(title="Listings")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
@@ -454,7 +454,7 @@ with tab2:
         fig.update_traces(marker=dict(size=7, line=dict(width=0)))
         dark_layout(fig, "Area vs. price · by luxury tier", height=380)
         fig.update_xaxes(title="Built-up area (sq. ft.)"); fig.update_yaxes(title="Price (Cr)")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
         st.markdown('</div>', unsafe_allow_html=True)
 
 with tab3:
@@ -486,7 +486,7 @@ with tab3:
         fig.update_coloraxes(showscale=False)
         dark_layout(fig, f"{sector.title()} · median price by BHK", height=360)
         fig.update_xaxes(title="Bedrooms"); fig.update_yaxes(title="Median price (Cr)")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
         st.markdown('</div>', unsafe_allow_html=True)
     with rc:
     #   st.markdown('<div class="mi-glass-panel">', unsafe_allow_html=True)
@@ -497,7 +497,7 @@ with tab3:
         fig.update_traces(marker=dict(line=dict(color="rgba(212,175,55,0.35)")))
         dark_layout(fig, f"{sector.title()} · price by luxury tier", height=360)
         fig.update_xaxes(title=""); fig.update_yaxes(title="Price (Cr)")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
         st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown("""
@@ -515,7 +515,7 @@ with tab3:
     show = show[["property_type", "bedRoom", "bathroom", "built_up_area",
                  "furnishing_type", "luxury_category", "agePossession", "price"]]
     show.columns = ["Type", "BHK", "Baths", "Area (sqft)", "Furnishing", "Luxury", "Possession", "Price"]
-    st.dataframe(show, use_container_width=True, hide_index=True)
+    st.dataframe(show, width="stretch", hide_index=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 

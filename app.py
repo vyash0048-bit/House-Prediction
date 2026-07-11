@@ -272,7 +272,7 @@ st.markdown("""
 try:
     from PIL import Image
     img = Image.open('assets/hero_banner.jpg')
-    st.image(img, use_container_width=True)
+    st.image(img, width="stretch")
     # Hero overlay
     st.markdown("""
     <div class="hero-overlay">
@@ -373,7 +373,7 @@ try:
    #    title=dict(text="Market Distribution", font=dict(family="Cinzel", color="#D4AF37", size=24))
    #)
    #fig.update_traces(marker=dict(size=8, line=dict(width=0)))
-   #st.plotly_chart(fig,use_container_width=True,config={"displayModeBar": False})
+   #st.plotly_chart(fig, width="stretch", config={"displayModeBar": False})
     # st.markdown('</div>', unsafe_allow_html=True)"""
     
     # Ornamental divider
