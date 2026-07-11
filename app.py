@@ -12,6 +12,12 @@ import plotly.graph_objects as go
 from urllib.request import urlretrieve
 from theme import inject_theme, render_nav, format_inr, GOLD
 
+FURNISHING_OPTIONS = {
+    "Unfurnished": "unfurnished",
+    "Semi-furnished": "semifurnished",
+    "Furnished": "furnished",
+}
+
 st.set_page_config(
     page_title="Aurea · Valuation Engine",
     page_icon="◈",
@@ -405,7 +411,8 @@ try:
             
         with c3:
             store_room = st.selectbox('Store Room', [0.0, 1.0], format_func=lambda x: "Available" if x == 1.0 else "None")
-            furnishing_type = st.selectbox('Furnishing Type', sorted(df['furnishing_type'].unique()))
+            furnishing_label = st.selectbox('Furnishing Type', list(FURNISHING_OPTIONS.keys()))
+            furnishing_type = FURNISHING_OPTIONS[furnishing_label]
             luxury_category = st.selectbox('Luxury Category', sorted(df['luxury_category'].unique()))
             floor_category = st.selectbox('Floor Category', sorted(df['floor_category'].unique()))
     st.markdown('</div>', unsafe_allow_html=True)
